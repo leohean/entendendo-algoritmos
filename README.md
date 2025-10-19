@@ -1,3 +1,4 @@
+# Entendendo Algoritmos
 
 ## Introdução a Algoritmos
 
@@ -115,10 +116,32 @@ A complexidade do Quicksort varia dependendo do pivô que nós escolhermos. Veja
 
 Se escolhermos sempre o primeiro elemento, além de ter que verificar cada elemento do array n vezes, nós teremos que repetir isso para todos os números, o que faz com que tenhamos n níveis, resultando numa complexidade O(n²)
 
-![](./readme-images/4_2_1-quicksort-caso-medio.png)
+![[4_2_2-quicksort-pior-caso.png]]
 
 Porém, se escolhermo um elementos aleatório a cada nível ao invés de sempre ser o primeiro, nós poderemos diminuir a quantidade de nível até log n. De modo que, nós teremos n operações em cada nível e log n níveis, resultando numa complexidade de O(n log n).
 
-![](./readme-images/4_2_2-quicksort-pior-caso.png)
+![[4_2_1-quicksort-caso-medio.png]]
 
-## Hash Table
+## Tabelas Hash
+As tabelas hash  é uma estrutura que nos permite armazenas na forma chave -> valor. Ela é muito útil, por exemplo, quando precisamos ver um item já existe na nossa lista. Veja o exemplo:
+
+```
+voted = {} # Cria uma tabela hash
+
+def verifica_eleitor(nome):
+	if voted.get(nome):
+		print("Mande o(a) "+nome+" embora!")
+	else:
+		voted[nome] = True
+		print("Deixe o(a) "+nome+" votar!")
+  
+
+verifica_eleitor("tom") # Deixe o(a) tom votar!
+
+verifica_eleitor("maria") # Deixe o(a) maria votar!
+
+verifica_eleitor("mike") # Deixe o(a) mike votar!
+verifica_eleitor("mike") # Mande o(a) mike embora!
+```
+
+[^1]: Neste exemplo, nós primeiro deixamos o eleitor votar e registramos que ele voltou. Caso, ele tente votar de novo, ele será barrado
