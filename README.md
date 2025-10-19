@@ -1,4 +1,3 @@
-# Entendendo Algoritmos
 
 ## Introdução a Algoritmos
 
@@ -108,3 +107,18 @@ No Quicksort nós definimos:
 	2. Colocamos todos os elementos que forem menor que o pivo a esquerda. Já aqueles qu forem maiores nós os colocaremos a direita.
 
 A complexidade desse algoritmo é O(n²), mas ela pode variar dependendo do pivô que nós escolhermos.
+
+### Pior caso Vs Caso Médio
+Existem casos em que um algoritmo apesar de não ser otimizado, a ponto de ter um complexidade O(n²), podem não ser tão ruins quanto parecem. Isso porquê O(n²) é para o pior caso possível, mas na verdade na maioria do tempo eles operam numa complexidade mais simples. Esse é o caso do QuickSort.
+
+A complexidade do Quicksort varia dependendo do pivô que nós escolhermos. Vejamos:
+
+Se escolhermos sempre o primeiro elemento, além de ter que verificar cada elemento do array n vezes, nós teremos que repetir isso para todos os números, o que faz com que tenhamos n níveis, resultando numa complexidade O(n²)
+
+![](./readme-images/4_2_1-quicksort-caso-medio.png)
+
+Porém, se escolhermo um elementos aleatório a cada nível ao invés de sempre ser o primeiro, nós poderemos diminuir a quantidade de nível até log n. De modo que, nós teremos n operações em cada nível e log n níveis, resultando numa complexidade de O(n log n).
+
+![](./readme-images/4_2_2-quicksort-pior-caso.png)
+
+## Hash Table
