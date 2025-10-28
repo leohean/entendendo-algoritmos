@@ -235,3 +235,112 @@ def pesquisa(grafo):
 pesquisa(grafo)
 ```
 
+## Algoritmo de Dijkstra
+
+### Grafos ponderados X Não ponderados
+Um grafo ponderado é aquele em que cada aresta possui um peso, um exemplo de utilização é a sua utilização para representar distância entre cidades. 
+Já os não ponderados são aqueles em que cada segmento do grafo possui o mesmo valor que o outro, muito utilizados para descrever relações de amizade em redes sociais.
+
+## Grafos direcionados X Não direcionados
+Em grafos direcionados as arestas que conectam os vértices possuem um sentido que direção. Por exemplo:
+
+			      +--> B
+			      |     \
+			      |      v
+			  A ---      C
+
+É possível chegar em B através de A, mas é impossível de B para A. O mesmo pensamento se aplica em  relação a C, pois é possível chegar nele partindo de A ou B, mas não o contrário.
+
+Enquanto isso, os grafos não direcionados não apresentam essa característica, é possível ir e voltar de qualquer vértice desde que eles estejam conectados por uma aresta.
+
+### O algoritmo de Dijkstra
+O algoritmo de Dijkstra funciona da seguinte maneira:
+1. Encontre o vértice mais barato.
+2.  Veja se através desse vértice existe algum caminho "mais barato" para chegar nos vizinhos dele. Se existir, atualiza-se a tabela de custos com o novo valor e também qual é o vértice para chegar até esse vizinho
+3.  Repita isso para cada vértice do grafo.
+4.  Calcule o caminho final
+
+```
+# Criando um grafo
+grafo = {} 
+
+# Definindo as arestas, os vértices e os respectivos pesos
+grafo["inicio"] = {}
+grafo["inicio"]["a"] = 6
+grafo["inicio"]["b"] = 2
+
+grafo["a"] = {}
+grafo["a"]["fim"] = 1
+
+grafo["b"] = {}
+grafo["b"]["a"] = 3
+grafo["b"]["fim"] = 5
+
+grafo["fim"] = {}
+  
+# Criando uma tabela que diz o custo para se chegar em cada nó do grafo a partir do inicio
+infinito = float("inf")
+  
+custos = {}
+custos["a"] = 6
+custos["b"] = 2
+custos["fim"] = infinito
+
+# Definindo uma tabela que guarda qual é o melhor nó para se alcançar um determinado vértice do grafo
+pais = {}
+pais["a"] = "inicio"
+pais["b"] = "inicio"
+pais["fim"] = None
+
+# Array com os nós já visitados
+processados = []
+
+def dijkstra():
+	# Primeiro procuramos o caminho de menor custo
+	nodo = ache_no_custo_mais_baixo(custos)
+
+	# Enquanto tivermos nós a serem processados
+	while nodo is not None:
+		#Pegamos o custo do nó
+		custo = custos[nodo]
+
+		# Pegamos os vizinhos deste nó
+		vizinhos = grafo[nodo]
+
+		# Para cada um dos vizinhos nós iremos fazer
+		for n in vizinhos.keys():
+			novo_custo = custo + vizinhos[n]
+			
+			# O custo até o nosso nó + o custo até o vizinho é menor?
+			if custos[n] > novo_custo:
+			
+			# Se sim, atualizamos o custo na tabela e o pai utilizado para chegar até o vizinho
+				custos[n] = novo_custo
+				pais[n] = nodo
+			
+		# Dizemos que esse nó já foi processado	
+		processados.append(nodo)
+		
+		# Pegamos o próximo nó
+		nodo = ache_no_custo_mais_baixo(custos)
+		
+def ache_no_custo_mais_baixo(custos):
+	custo_mais_baixo = float("inf")
+	nodo_custo_mais_baixo = None
+	
+	# Iremos iterar cada nó da tabela de custos
+	for nodo in custos:
+		custo = custos[nodo]
+
+	# Pegamos o nó com menor custo e que ainda não foi processado
+	if custo < custo_mais_baixo and nodo not in processados:
+		custo_mais_baixo = custo
+		nodo_custo_mais_baixo = nodo
+		
+	return nodo_custo_mais_baixo
+	
+dijkstra()
+print(custos)
+```
+
+
