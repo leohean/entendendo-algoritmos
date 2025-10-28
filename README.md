@@ -145,3 +145,25 @@ verifica_eleitor("mike") # Mande o(a) mike embora!
 ```
 
 [^1]: Neste exemplo, nós primeiro deixamos o eleitor votar e registramos que ele voltou. Caso, ele tente votar de novo, ele será barrado
+
+### Funções hash
+As funções hash são as responsáveis por definir em que posição um item associado a uma chave ficará no vetor.
+Se a função hash for boa haverá uma boa distribuição dos itens ao longo do vetor. Caso contrário, muitos itens ficarão listados numa mesma posição de memória, o que levará maior lentidão em pesquisas futuras. Vide:
+
+**Função hash boa:**
+*f(x) = y*
+
+0 -> Abacate
+1 -> Melancia
+2 -> Carambola
+3 -> ...
+4 -> Jaca
+
+**Função hash ruim:**
+*h(x) = y*
+
+0 -> Abacate, Melancia, Carambola, Jaca
+1 -> ...
+2 -> ...
+3 -> ...
+4 -> ...
