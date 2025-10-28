@@ -174,7 +174,7 @@ Se a função hash for boa haverá uma boa distribuição dos itens ao longo do 
 Um grafo é um conjunto de conexões entre elementos. Muito utilizado para descrever conexões de amizades em redes, distância entre cidades, entre outros. Veja:
 
 Pedro ----- Maria ----- João --- Arthur
-	\        /                /
+	\        /        /
 	José ----- Clara
 		\
 		Felipe
