@@ -1,0 +1,5 @@
+8.1 Você trabalha para uma empresa de mobílias e tem de enviar os móveis para todo o país. É necessário encher seu caminhão com caixas, e todas as caixas são de tamanhos diferentes. Você está tentando maximizar o espaço que consegue usar em cada caminhão. Como escolheria as caixas para maximizar o espaço? Proponha uma solução gulosa. Ela lhe dará a solução ideal?
+R: Eu escolheria primeiro as maiores caixas para se colocar no caminhão. Talvez ela não me forneça a solução ideal, mas ainda sim será uma boa solução.
+
+8.2 Você está viajando para a Europa e tem sete dias para visitar o maior número de lugares. Para cada lugar você atribui um valor (o quanto deseja ver) e estima quanto tempo demora. Como maximizar o total de pontos (passar por todos os lugares que realmente quer ver) durante sua estadia? Proponha uma solução gulosa. Ela lhe dará a solução ideal?
+R: Primeiramente, eu visitaria os lugares que mais valem pontos. Essa abordagem me dará uma boa solução, mas talvez não seja a ideal.
