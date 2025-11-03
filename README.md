@@ -393,4 +393,56 @@ while estados_abranger:
 print(estacoes_final)
 ```
 
+## Programação dinâmica
+
+Um problema de programação dinâmica consiste em resolver subproblemas *(problemas da classe discreta)*, ir escalando até que consigamos resolver o problema geral.
+
+Esse tipo de problema via de regra envolve maximizar um resultado quando temos um limite estipulado.
+
+**Por exemplo,** suponha que você esteja indo acampar e que sua mochila tenha capacidade para 6 quilos. Sendo assim, você pode escolher entre os itens abaixo para levar. Cada item tem um valor, e quanto mais alto este valor, mais importante o item é:
+- Água, 1 kg, 10
+- Livro, 1 kg, 3
+- Comida, 2 kg, 9
+- Casaco, 2 kg, 5
+- Câmera, 1 kg, 6
+Qual é o conjunto de itens ideal que deve ser levado para o acampamento?
+
+**Uma forma de resolver isso seria primeiramente descobrir o melhor conjunto de itens para um saco de 1Kg, depois um de 2Kg e assim por diante...**
+
+Na primeira linha, a única opção disponível por enquanto é a água, então ela é a nossa melhor opção.
+
+|                      | 1 Kg | 2 Kg | 3 Kg | 4 Kg | 5 Kg | 6 Kg |
+| -------------------- | :--: | :--: | :--: | :--: | :--: | :--: |
+| Água **(1 Kg - 10)** |  10  |  10  |  10  |  10  |  10  |  10  |
+
+Já na segunda linha temos o livro. Contudo a água ainda é mais valiosa, então para uma mochila que aguenta no máximo 1Kg nós iremos optar por ela.
+
+|                      | 1 Kg | 2 Kg | 3 Kg | 4 Kg | 5 Kg | 6 Kg |     |
+| -------------------- | :--: | :--: | :--: | :--: | :--: | :--: | --- |
+| Água **(1 Kg - 10)** |  10  |  10  |  10  |  10  |  10  |  10  |     |
+| Livro **(1 Kg - 3)** |  10  |  ?   |  ?   |  ?   |  ?   |  ?   |     |
+
+Porém, com um peso máximo de 2 Kg ou superior é possível incluir o livro também
+
+|                       | 1 Kg | 2 Kg | 3 Kg | 4 Kg | 5 Kg | 6 Kg |
+| --------------------- | :--: | :--: | :--: | :--: | :--: | :--: |
+| Água **(1 Kg - 10)**  |  10  |  10  |  10  |  10  |  10  |  10  |
+| Livro **(1 Kg - 3)**  |  10  |  13  |  13  |  13  |  13  |  13  |
+**Conseguimos criar a seguinte generalização:**
+**Célula\[ i ]\[ j ]** = máximo entre :
+1. O máximo anterior = valor na **célula\[i -1]\[ j ]**
+2. Valor do item atual + valor do espaço restante
+
+E dessa forma coneguiremos terminar de preencher a tabela
+
+|                       | 1 Kg | 2 Kg | 3 Kg | 4 Kg | 5 Kg | 6 Kg |
+| --------------------- | :--: | :--: | :--: | :--: | :--: | :--: |
+| Água **(1 Kg - 10)**  |  10  |  10  |  10  |  10  |  10  |  10  |
+| Livro **(1 Kg - 3)**  |  10  |  13  |  13  |  13  |  13  |  13  |
+| Comida **(2 Kg - 9)** |  10  |  13  |  19  |  22  |  22  |  22  |
+| Casaco **(2 Kg - 5)** |  10  |  13  |  19  |  20  |  24  |  27  |
+| Câmera **(1 Kg - 6)** |  10  |  16  |  19  |  25  |  28  |  30  |
+
+**Por fim, o conjunto de itens que deveria ser levado ao acampamento é a água, a comida, o casaco e a câmera.**
+
 
