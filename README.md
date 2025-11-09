@@ -445,4 +445,23 @@ E dessa forma coneguiremos terminar de preencher a tabela
 
 **Por fim, o conjunto de itens que deveria ser levado ao acampamento é a água, a comida, o casaco e a câmera.**
 
+## K-vizinhos mais próximos
+
+### Classificação
+A classificação com o algoritmo "K-vizinhos mais próximos" consiste em pegar os K vizinhos mais perto do elemento que estamos analisando e em seguida com base neles dizer a qual grupo o nosso elemento pertence. 
+
+**Por exemplo:** Dizemos que temos 2 grupos, os das laranjas e outro das toranjas e nós temos em mãos uma fruta que por enquanto não sabemos o que é. Para resolver essa questão, nós iremos analisar os 5 vizinhos mais próximos dessa nossa fruta, se a maior parte deles for uma laranja ele também será, caso contrário será uma toranja.
+
+## Regressão
+A regressão é um pouco diferente da classificação porque enquanto na classificação nós tentamos dizemos a qual grupo um elemento pertence baseado em seus vizinhos, a regressão, por sua vez, tentará prever um resultado de uma amostra de dados com base nos vizinhos dela.
+
+**Por exemplo:** Imagine o cenário de uma padaria em que ela precisa produzir X pães por dia, sendo que esse resultado varia dependendo de certas condições do dia, sendo elas:
+1. A possibilidade de chover
+2. É final de semana ou feriado?
+3. Vai haver um jogo de futebol nesse dia?
+
+A nossa amostra, a possibilidade de chover é 0.4 (40%), é um final de semana e vai ter um jogo do Corinthians contra o Flamengo. Com base nisso tudo, quantos pães será necessário produzir?
+
+Fácil, é só analizar os K vizinhos mais próximos da nossa amostra e ver quanto cada um produziu de pães no dia. Com isso fazemos uma média e teremos a quantidade X de pães que necessitamos.
+
 
