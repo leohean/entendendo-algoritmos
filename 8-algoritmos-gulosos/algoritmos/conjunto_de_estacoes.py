@@ -15,13 +15,20 @@ while estados_abranger:
     melhor_estacao = None       # Estação que cobre o maior número de estados
     estados_cobertos = set()    # Conjunto de estados que a estação cobre e que ainda não abrangemos
 
+    # Loop sobre cada estação e o conjunto(set) dela
     for estacao, estados_por_estacao in estacoes.items():
-        cobertos = estados_abranger & estados_por_estacao
+        # Intersecção entre os estados que ainda precisamos abranger e os da estação atual
+        cobertos = estados_abranger & estados_por_estacao 
+
+         # Se o número de estados cobertos pela nova estação é maior do que aqueles que já temos fazemos a troca
         if len(cobertos) > len(estados_cobertos):
             melhor_estacao = estacao
             estados_cobertos = cobertos
 
+    # Adicionamos a melhor estação ao conjunto solução
     estacoes_final.add(melhor_estacao)
+
+    #Retiramos os estados que já cobrimos daqueles que ainda precisamos abranger
     estados_abranger -= estados_cobertos
 
 print(estacoes_final)
